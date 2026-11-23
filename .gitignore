@@ -1,0 +1,23 @@
+# 依赖与构建产物
+node_modules/
+dist/
+build/
+*.min.js
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp
+*.swp
+
+# 微信开发者工具本地配置（含个人 AppID 等）
+project.private.config.json
+
+# 本地环境变量
+.env
+.env.local
