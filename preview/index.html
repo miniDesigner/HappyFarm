@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>欢乐农场 - Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #2d3748;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #gameCanvas {
+      display: block;
+      touch-action: none;
+    }
+    #loading {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #cbd5e0;
+      font-size: 16px;
+      pointer-events: none;
+      z-index: 100;
+    }
+    #hint {
+      position: fixed;
+      top: 8px;
+      right: 12px;
+      color: #cbd5e0;
+      font-size: 11px;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <div id="loading">加载中...</div>
+  <div id="hint">点击空地播种 · 点击成熟作物收获 · 底部按钮打开仓库/订单/加工</div>
+
+  <script src="wx-shim.js"></script>
+  <script type="module">
+    import Game from '../src/game/Game.js';
+
+    const canvas = document.getElementById('gameCanvas');
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const pixelRatio = window.devicePixelRatio || 1;
+
+    canvas.width = screenWidth * pixelRatio;
+    canvas.height = screenHeight * pixelRatio;
+    canvas.style.width = screenWidth + 'px';
+    canvas.style.height = screenHeight + 'px';
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(pixelRatio, pixelRatio);
+
+    const game = new Game(canvas, ctx, screenWidth, screenHeight);
+    window.__hfGame = game;
+
+    game.start().then(() => {
+      document.getElementById('loading').style.display = 'none';
+    }).catch(err => {
+      document.getElementById('loading').textContent = '加载失败: ' + err.message;
+      console.error(err);
+    });
+  </script>
+</body>
+</html>

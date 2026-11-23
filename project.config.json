@@ -1,0 +1,52 @@
+{
+  "appid": "wx8785139846ff13f7",
+  "projectname": "happfarm-demo",
+  "compileType": "game",
+  "setting": {
+    "es6": true,
+    "minified": false,
+    "postcss": false,
+    "compileWorklet": false,
+    "localPlugins": false,
+    "packNpmManually": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "enhance": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false,
+    "condition": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "packOptions": {
+    "ignore": [
+      {
+        "value": "tests",
+        "type": "folder"
+      },
+      {
+        "value": "docs",
+        "type": "folder"
+      },
+      {
+        "value": "preview",
+        "type": "folder"
+      },
+      {
+        "value": "preview-server.py",
+        "type": "file"
+      }
+    ],
+    "include": []
+  },
+  "description": "欢乐农场 Demo - 原生 Canvas 2D 微信小游戏",
+  "simulatorPluginLibVersion": {},
+  "isGameTourist": false,
+  "editorSetting": {}
+}
